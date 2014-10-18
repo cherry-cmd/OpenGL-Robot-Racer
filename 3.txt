@@ -1,0 +1,15 @@
+Protein P is GGUAAAUGAUCGUUGCAGUUUGAGACU 
+Seq startcodon is AUG 
+Seq stopcodon is UGA 
+AminoAcid A[] 
+A is getSequence(P) 
+Seq restrictionSeq is GUU 
+restAA is getAminoAcid(restrictionSite) 
+for ( i is 0 ; i < A.length ; i++)
+{
+	if ( A[i] == restAA)
+	{
+		print ( i ) 
+	}
+}
+end

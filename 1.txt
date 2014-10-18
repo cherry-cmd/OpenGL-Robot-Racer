@@ -1,0 +1,23 @@
+Protein P is GGUAAAUGAUCGUUGCAAAUUGAGACU 
+Seq startcodon is AUG 
+Seq stopcodon is UGA 
+AminoAcids A[] 
+int j is 0 
+int i is 0 
+for ( i is 0 ; i < P.length ; i++ )
+{
+	Seq s is P[i],P[i+1],P[i+2] 
+	if ( s == startcodon )
+	{
+		for ( j is i + 3 ; j < P.length - 2 ; j is j + 3 )
+		{
+			Seq s1 = P[j],P[j+1],P[j+2] 
+			if ( s1 == stopcodon )
+			{
+				end
+			}
+			print ( getAminoAcid (s1) ) 
+		}		
+	}
+}
+end	
