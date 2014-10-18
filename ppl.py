@@ -1,7 +1,7 @@
 keywords=('Nucleotide','Protien','Seq','AminoAcids','int','for','length','in','if','else','end','print','getSequence','getAminoAcid','to','with')
-operators=('-+-','-/-','(',')',',','{','}','[',']','+','-','*','/','++','--','%','==','>=','<=','>','<',';')
+operators=('-+-','-/-','.','(',')',',','{','}','[',']','+','-','*','/','++','--','%','==','>=','<=','>','<',';')
 
-splitby = ['(',')','}','{','+','-',',','*','/','++','--','%','==','>=','<=','>','<',';','-+-','-/-']
+splitby = ['(',')','}','{','[',']','+','-','.',',','*','/','++','--','%','==','>=','<=','>','<',';','-+-','-/-']
 
 found=[]
 templist=[]
@@ -13,14 +13,14 @@ def isLiteral():
 def isIdentifier():
     pass
 
-def symbolclip(myword):
+def splitOperation(myword):
     global templist
     global templist2
     global found
     templist=[]
     templist2=[]
     found=[]
-
+    
     if ',' in myword:
         tempans = []
         templist=myword.split(',')
@@ -30,7 +30,7 @@ def symbolclip(myword):
         templist = tempans[:-1]
     else:
         templist.append(myword)
-    
+
     for symbol in splitby:
         for q in templist:
             templist2=q.split(symbol)
@@ -51,14 +51,14 @@ def symbolclip(myword):
 
 answer = []
 
-fh=open('4.txt')
-for line in fh:
+file=open('4.txt')
+for line in file:
     line=line.strip()
     if len(line) == 0:
         continue
     line=line.rstrip('\n')
     words=line.split()
     for word in words:
-        answer.extend(symbolclip(word))
+        answer.extend(splitOperation(word))
 
 print(answer)
