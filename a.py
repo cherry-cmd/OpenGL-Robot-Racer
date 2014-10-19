@@ -5,7 +5,8 @@ tokenType = {
     'is':'operator','-+-':'operator','-/-':'operator','+':'operator','-':'operator','*':'operator','/':'operator','++':'operator','--':'operator','==':'operator','>=':'operator','<=':'operator','>':'operator','<':'operator',
     ';':'Special Symbol','(':'Special Symbol',')':'Special Symbol','%':'Special Symbol','{':'Special Symbol','}':'Special Symbol','[':'Special Symbol',']':'Special Symbol','.':'Special Symbol',',':'Special Symbol'
 }
-
+temp = []
+stringLiterals = []
 tokens = []
 splittingOperators = ['(',')','}','{','[',']','+','-','.',',','*','/','%','==','>=','<=','>','<',';']
 ids = "[a-zA-z][a-zA-Z0-9]*|[a-zA-z]_[a-zA-Z0-9]"
@@ -27,21 +28,27 @@ for line in file:
     if len(line) == 0:
         continue
     line=line.rstrip('\n')
+    if '"' in line:
+        temp=line.split('"')
+        line = temp[0] + temp[1] + temp[2]
+        stringLiterals.append(temp[1])
     tokens.extend(splitOperation(line))
 
 for term in tokens:
     if term in tokenType.keys():
-      print (term+' : '+tokenType[term])
+        print (term+' : '+tokenType[term])
     elif isIntLiteral(term)==True:
-      print (term + ' : Integer Literal')
+        print (term + ' : Integer Literal')
+    elif term in stringLiterals:
+        print (term + ' : String Literal')
     else:
       tkn = re.findall(ids,term)
       if(len(tkn) == 1 ):
-        if(tkn[0] == term):
-          print(term + ' : Identifier')
-        else:
-          print(term + ' : Invalid  Identifier')
+          if(tkn[0] == term):
+              print(term + ' : Identifier')
+          else:
+              print(term + ' : Invalid  Identifier')
       else:
-        print(term + ' : Invalid  Identifier')
+          print(term + ' : Invalid  Identifier')
 
 
