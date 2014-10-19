@@ -1,15 +1,19 @@
+file=open('1.txt')
+
 import re
 
 tokenType = {
-    'Nucleotide':'keyword','Protein':'keyword','Seq':'keyword','AminoAcids':'keyword','int':'keyword','for':'keyword','length':'keyword','in':'keyword','if':'keyword','else':'keyword','end':'keyword','print':'keyword','getSequence':'keyword','getAminoAcid':'keywords','to':'keyword','with':'keyword',
-    'is':'operator','-+-':'operator','-/-':'operator','+':'operator','-':'operator','*':'operator','/':'operator','++':'operator','--':'operator','==':'operator','>=':'operator','<=':'operator','>':'operator','<':'operator',
+    'Nucleotide':'Keyword','Protein':'Keyword','Seq':'Keyword','AminoAcids':'Keyword','int':'Keyword','for':'Keyword','length':'Keyword','in':'Keyword','if':'Keyword','else':'Keyword','end':'Keyword','print':'Keyword','getSequence':'Keyword','getAminoAcid':'Keywords','to':'Keyword','with':'Keyword',
+    'is':'Operator','-+-':'Operator','-/-':'Operator','+':'Operator','-':'Operator','*':'Operator','/':'Operator','++':'Operator','--':'Operator','==':'Operator','>=':'Operator','<=':'Operator','>':'Operator','<':'Operator',
     ';':'Special Symbol','(':'Special Symbol',')':'Special Symbol','%':'Special Symbol','{':'Special Symbol','}':'Special Symbol','[':'Special Symbol',']':'Special Symbol','.':'Special Symbol',',':'Special Symbol'
 }
+
 temp = []
 stringLiterals = []
 tokens = []
+
 splittingOperators = ['(',')','}','{','[',']','+','-','.',',','*','/','%','==','>=','<=','>','<',';']
-ids = "[a-zA-z][a-zA-Z0-9]*|[a-zA-z]_[a-zA-Z0-9]"
+ids = "[a-zA-z][a-zA-Z0-9]*[_]*[a-zA-z][a-zA-Z0-9]*|[a-zA-z][a-zA-Z0-9]*"
 
 def isIntLiteral(integer):
     try: 
@@ -22,7 +26,6 @@ def splitOperation(string):
     x = [value.strip() for value in re.split('(\s|\\-\\+\\-|\\-\\/\\-|\\+\\+|\\+|\\-\\-|\\-|\\(|\\)|\\{|\\}|\\[|\\]|\\.|\\*|\\%|==|\\>\\=|\\<\\=|;|/|>|<|\\=\\=|,)\s*',string) if not len(value.strip()) == 0]
     return x
 
-file=open('4.txt')
 for line in file:
     line=line.strip()
     if len(line) == 0:

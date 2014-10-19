@@ -17,7 +17,7 @@ for (i is 0 ; i < A1.length ; i++)
 }
 int percentageMatch is (match/A1.length)*100 
 if ( percentageMatch > 70 )
-	{ print ( “Match” )  }
+	{ print ( "Match" )  }
 else
-	{ print ( “Not Match” )  }
+	{ print ( "NotMatch" )  }
 end 
