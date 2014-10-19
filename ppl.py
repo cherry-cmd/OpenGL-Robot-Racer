@@ -1,37 +1,20 @@
+import re
+
 keywords=('Nucleotide','Protien','Seq','AminoAcids','int','for','length','in','if','else','end','print','getSequence','getAminoAcid','to','with')
 operators=('-+-','-/-','.','(',')',',','{','}','[',']','+','-','*','/','++','--','%','==','>=','<=','>','<',';')
 
-splitby = ['(',')','}','{','[',']','+','-','.',',','*','/','++','--','%','==','>=','<=','>','<',';','-+-','-/-']
+splittingOperators = ['(',')','}','{','[',']','+','-','.',',','*','/','++','--','%','==','>=','<=','>','<',';','-+-','-/-']
 
-found=[]
-templist=[]
-templist2=[]
+x = re.split('(\\+\\+|\\+|\\-\\-|\\-|\s)\s*',line)
 
-def isLiteral():
-    pass
-
-def isIdentifier():
-    pass
-
-def splitOperation(myword):
-    global templist
-    global templist2
-    global found
+def splitOperation(string):
     templist=[]
     templist2=[]
     found=[]
     
-    if ',' in myword:
-        tempans = []
-        templist=myword.split(',')
-        for word in templist:
-            tempans.append(word)
-            tempans.append(',')
-        templist = tempans[:-1]
-    else:
-        templist.append(myword)
+    templist.append(string)
 
-    for symbol in splitby:
+    for symbol in splittingOperators:
         for q in templist:
             templist2=q.split(symbol)
             tempans = []
@@ -49,9 +32,8 @@ def splitOperation(myword):
             templist2.append(word)
     return templist2
 
-answer = []
-
-file=open('4.txt')
+file=open('3.txt')
+tokens = []
 for line in file:
     line=line.strip()
     if len(line) == 0:
@@ -59,6 +41,6 @@ for line in file:
     line=line.rstrip('\n')
     words=line.split()
     for word in words:
-        answer.extend(splitOperation(word))
+        tokens.extend(splitOperation(word))
 
-print(answer)
+print(tokens)
