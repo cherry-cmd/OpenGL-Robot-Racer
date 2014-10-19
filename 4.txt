@@ -1,12 +1,12 @@
-Protein P1 is GGUAAAUGAUCGUUGCAAAUUGAGACU 
-Protein P2 is AGUAAAUGAGCGUUGCAAAUUGAGACG 
-Seq startcodon is AUG 
-Seq stopcodon is UGA 
+Protein P1 is "GGUAAAUGAUCGUUGCAAAUUGAGACU" 
+Protein P2 is "AGUAAAUGAGCGUUGCAAAUUGAGACG" 
+Seq startcodon is "AUG" 
+Seq stopcodon is "UGA" 
 AminoAcid A1[] 
 AminoAcid A2[] 
 A1 is getSequence(P1)
 A2 is getSequence(P2) 
-Seq restrictionSeq is GUU 
+Seq restrictionSeq is "GUU" 
 int site1 is getRestrictionSites(P1,restrictionSeq) 
 int site2 is getRestrictionSites(P2,restrictionSeq) 
 Protein P1_new is P1[0] to P1[site1] 

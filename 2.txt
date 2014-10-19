@@ -1,7 +1,7 @@
-Protein P1 is GGUAAAUGAUCGUUGCAAAUUGAGACU 
-Protein P2 is AGUAAAUGAGCGUUGCAAAUUGAGACG 
-Seq startcodon is AUG 
-Seq stopcodon is UGA 
+Protein P1 is "GGUAAAUGAUCGUUGCAAAUUGAGACU" 
+Protein P2 is "AGUAAAUGAGCGUUGCAAAUUGAGACG" 
+Seq startcodon is "AUG" 
+Seq stopcodon is "UGA" 
 AminoAcid A1[] 
 AminoAcid A2[]
 A1 is getSequence(P1) 
