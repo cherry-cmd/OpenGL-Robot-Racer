@@ -45,13 +45,13 @@ for term in tokens:
     elif term in stringLiterals:
         print (term + ' : String Literal')
     else:
-      tkn = re.findall(ids,term)
-      if(len(tkn) == 1 ):
-          if(tkn[0] == term):
-              print(term + ' : Identifier')
-          else:
-              print(term + ' : Invalid  Identifier')
-      else:
-          print(term + ' : Invalid  Identifier')
+        tkn = re.findall(ids,term)
+        if(len(tkn) == 1 ):
+            if(tkn[0] == term):
+                print(term + ' : Identifier')
+            else:
+                print(term + ' : Invalid  Token')
+        else:
+            print(term + ' : Invalid  Token')
 
 
