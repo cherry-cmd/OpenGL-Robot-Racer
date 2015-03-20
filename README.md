@@ -5,8 +5,13 @@ Currently in Bot Toggle Mode. Can be modified to Race Mode.
 
 Commands
 The program uses keyboard to trigger robot movements:
+
 ● “F”: Moving robot forward
+
 ● “B”: Moving robot backward
+
 ● “T”: Toggle between bots
+
 ● “W”: Toggle Wireframe mode
+
 ● “Q”: Exit
