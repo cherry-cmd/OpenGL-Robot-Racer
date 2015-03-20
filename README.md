@@ -3,7 +3,8 @@
 Racing game for two OpenGL Robots made in C++.
 Currently in Bot Toggle Mode. Can be modified to Race Mode.
 
-Commands
+COMMANDS
+
 The program uses keyboard to trigger robot movements:
 
 ● “F”: Moving robot forward
